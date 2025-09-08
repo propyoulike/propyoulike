@@ -91,6 +91,45 @@ const Header = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="flex items-center space-x-1">
+                  <span>Builders</span>
+                  <ChevronDown className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>
+                  <a href="/builders">Top Builders</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>Featured Developers</DropdownMenuItem>
+                <DropdownMenuItem>New Builders</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="flex items-center space-x-1">
+                  <span>Projects</span>
+                  <ChevronDown className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>
+                  <a href="/projects/eoi">EOI Projects</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="/projects/ready-to-move">Ready to Move</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="/projects/under-construction">Under Construction</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="/projects/resale">Resale Properties</a>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="flex items-center space-x-1">
                   <span>Services</span>
                   <ChevronDown className="h-4 w-4" />
                 </Button>
