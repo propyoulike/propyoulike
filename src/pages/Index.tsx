@@ -16,12 +16,12 @@ const Index = () => {
         <PropertyListings />
         <TopBuilders />
         <ProjectsByStage />
-        <StatsSection />
         <ServicesSection />
       </main>
       <Footer />
     </div>
   );
 };
+//        <StatsSection />
 
 export default Index;

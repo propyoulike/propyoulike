@@ -14,20 +14,14 @@ import {
 } from 'lucide-react';
 
 const Footer = () => {
-  const cities = [
-    'Bangalore', 'Mumbai', 'Delhi', 'Chennai', 'Hyderabad', 'Pune', 
-    'Kolkata', 'Ahmedabad', 'Gurgaon', 'Noida', 'Ghaziabad', 'Faridabad'
-  ];
+  const cities = ['Bangalore']; //'Delhi', 'Chennai', 'Hyderabad', 'Pune', 'Ahmedabad', 'Mumbai', 'Kolkata'
 
   const quickLinks = [
-    'Buy Properties', 'Rent Properties', 'Sell Properties', 'Property Management',
-    'Home Loans', 'Property Valuation', 'Legal Services', 'Interior Design'
-  ];
+    'Buy Properties', 'Home Loans']; // 'Rent Properties', 'Property Management', 'Property Valuation', 'Legal Services', 'Interior Design', 'Sell Properties'
 
   const propertyTypes = [
-    'Apartments', 'Villas', 'Plots & Land', 'Commercial Properties',
+    'Apartments', 'Villas', 'Plots & Land']; // 'Commercial Properties',
     'PG & Hostels', 'Office Spaces', 'Retail Shops', 'Warehouses'
-  ];
 
   return (
     <footer className="bg-card border-t">
@@ -64,8 +58,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-muted-foreground text-sm">
-              Your trusted partner in real estate. Find, buy, rent, and manage properties 
-              with ease across major Indian cities.
+              Your trusted partner in real estate. Find and buy with ease across Bengaluru.
             </p>
             <div className="space-y-2">
               <div className="flex items-center text-sm">
@@ -74,11 +67,11 @@ const Footer = () => {
               </div>
               <div className="flex items-center text-sm">
                 <Phone className="h-4 w-4 mr-2 text-primary" />
-                +91 80 4567 8900
+                +91 9379822010
               </div>
               <div className="flex items-center text-sm">
                 <Mail className="h-4 w-4 mr-2 text-primary" />
-                hello@propyoulike.com
+                hi@propyoulike.com
               </div>
             </div>
           </div>

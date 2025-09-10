@@ -12,16 +12,16 @@ const Header = () => {
   const [activeTab, setActiveTab] = useState('Bangalore');
 
   const cities = [
-    'Bangalore', 'Mumbai', 'Delhi', 'Chennai', 'Hyderabad', 'Pune', 'Kolkata', 'Ahmedabad'
-  ];
+    'Bangalore'
+  ]; {/*, 'Mumbai', 'Delhi', 'Chennai', 'Hyderabad', 'Pune', 'Kolkata', 'Ahmedabad' */}
 
   const services = [
-    'Property Management', 'Home Loans', 'Legal Services', 'Property Valuation', 'Interior Design'
-  ];
+    'Home Loans', 'Legal Services', 'Interior Design'
+  ]; {/*'Property Management', 'Property Valuation' */}
 
   const resources = [
-    'Market Reports', 'Property News', 'Investment Guide', 'EMI Calculator', 'Property Tax'
-  ];
+'Investment Guide', 'EMI Calculator', 'Property Tax'
+  ];    {/*'Market Reports', 'Property News' */}
 
   return (
     <header className="bg-background border-b border-border shadow-sm sticky top-0 z-50">
@@ -38,7 +38,7 @@ const Header = () => {
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <DropdownMenu>
+{/*            <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="flex items-center space-x-1">
                   <MapPin className="h-4 w-4" />
@@ -57,6 +57,7 @@ const Header = () => {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
+*/}
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -69,11 +70,11 @@ const Header = () => {
                 <DropdownMenuItem>Apartments</DropdownMenuItem>
                 <DropdownMenuItem>Villas</DropdownMenuItem>
                 <DropdownMenuItem>Plots</DropdownMenuItem>
-                <DropdownMenuItem>Commercial</DropdownMenuItem>
+                <DropdownMenuItem>Houses</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <DropdownMenu>
+{/*            <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="flex items-center space-x-1">
                   <span>Rent</span>
@@ -87,6 +88,7 @@ const Header = () => {
                 <DropdownMenuItem>Commercial</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+*/}
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -112,6 +114,12 @@ const Header = () => {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
+                <DropdownMenuItem>
+                  <a href="/projects/luxury">Luxury Projects</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="/projects/affordable">Affordable Projects</a>
+                </DropdownMenuItem>
                 <DropdownMenuItem>
                   <a href="/projects/eoi">EOI Projects</a>
                 </DropdownMenuItem>
@@ -141,7 +149,7 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <DropdownMenu>
+{/*            <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="flex items-center space-x-1">
                   <span>Resources</span>
@@ -153,17 +161,15 @@ const Header = () => {
                   <DropdownMenuItem key={resource}>{resource}</DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
-            </DropdownMenu>
+            </DropdownMenu> 
+*/}
 
-            <Button variant="outline" className="border-success text-success hover:bg-success hover:text-success-foreground">
-              Intelligence
-            </Button>
           </nav>
 
           {/* Right Side Actions */}
           <div className="flex items-center space-x-4">
             <Button variant="ghost" size="sm" className="hidden md:flex">
-              Sell or Rent Property
+              Partner with us
             </Button>
             
             <Button variant="ghost" size="icon">

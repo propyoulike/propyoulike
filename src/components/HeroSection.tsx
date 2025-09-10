@@ -48,7 +48,7 @@ const HeroSection = () => {
           </div>
 
           {/* Property Type Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
+{/*          <div className="flex flex-wrap justify-center gap-2 mb-8">
             {propertyTypes.map((type) => (
               <button
                 key={type.id}
@@ -64,6 +64,7 @@ const HeroSection = () => {
               </button>
             ))}
           </div>
+*/}
 
           {/* Search Form */}
           <div className="bg-white rounded-2xl p-6 shadow-xl max-w-4xl mx-auto">
@@ -76,10 +77,10 @@ const HeroSection = () => {
                     <SelectValue placeholder="Select city" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="bangalore">Bangalore</SelectItem>
-                    <SelectItem value="mumbai">Mumbai</SelectItem>
-                    <SelectItem value="delhi">Delhi</SelectItem>
-                    <SelectItem value="chennai">Chennai</SelectItem>
+                    <SelectItem value="East Bangalore">East Bangalore</SelectItem>
+                    <SelectItem value="West Bangalore">West Bangalore</SelectItem>
+                    <SelectItem value="South Bangalore">South Bangalore</SelectItem>
+                    <SelectItem value="North Bangalore">North Bangalore</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

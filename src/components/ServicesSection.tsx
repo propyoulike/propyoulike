@@ -13,13 +13,6 @@ import {
 const ServicesSection = () => {
   const services = [
     {
-      icon: Home,
-      title: "Property Management",
-      description: "Complete property management solutions for landlords and tenants",
-      features: ["Tenant Screening", "Rent Collection", "Maintenance"],
-      color: "text-primary"
-    },
-    {
       icon: CreditCard,
       title: "Home Loans",
       description: "Get the best home loan deals with competitive interest rates",
@@ -34,6 +27,22 @@ const ServicesSection = () => {
       color: "text-secondary"
     },
     {
+      icon: PaintBucket,
+      title: "Interior Design",
+      description: "Transform your space with our interior design services",
+      features: ["3D Design", "Furniture Selection", "Complete Makeover"],
+      color: "text-success"
+    },
+  ];
+
+{/*    {
+      icon: Home,
+      title: "Property Management",
+      description: "Complete property management solutions for landlords and tenants",
+      features: ["Tenant Screening", "Rent Collection", "Maintenance"],
+      color: "text-primary"
+    },
+    {
       icon: Calculator,
       title: "Property Valuation",
       description: "Accurate property valuation by certified professionals",
@@ -41,20 +50,13 @@ const ServicesSection = () => {
       color: "text-primary"
     },
     {
-      icon: PaintBucket,
-      title: "Interior Design",
-      description: "Transform your space with our interior design services",
-      features: ["3D Design", "Furniture Selection", "Complete Makeover"],
-      color: "text-success"
-    },
-    {
       icon: Shield,
       title: "Property Insurance",
       description: "Protect your investment with comprehensive insurance coverage",
       features: ["Home Insurance", "Tenant Insurance", "Claims Support"],
       color: "text-secondary"
-    }
-  ];
+    } */}
+
 
   return (
     <section className="py-16 bg-background">
