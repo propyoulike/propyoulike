@@ -101,9 +101,12 @@ const ServicesSection = () => {
                     <Button 
                       variant="ghost" 
                       className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                      asChild
                     >
-                      Learn More
-                      <ArrowRight className="h-4 w-4 ml-2" />
+                      <a href="/solutions">
+                        Learn More
+                        <ArrowRight className="h-4 w-4 ml-2" />
+                      </a>
                     </Button>
                   </div>
                 </CardContent>
@@ -113,9 +116,11 @@ const ServicesSection = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button size="lg" className="bg-primary hover:bg-primary-hover">
-            Explore All Services
-            <ArrowRight className="h-4 w-4 ml-2" />
+          <Button size="lg" className="bg-primary hover:bg-primary-hover" asChild>
+            <a href="/solutions">
+              Explore All Services
+              <ArrowRight className="h-4 w-4 ml-2" />
+            </a>
           </Button>
         </div>
       </div>

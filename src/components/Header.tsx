@@ -168,19 +168,21 @@ const Header = () => {
 
           {/* Right Side Actions */}
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="sm" className="hidden md:flex">
-              Partner with us
+            <Button variant="ghost" size="sm" className="hidden md:flex" asChild>
+              <a href="/partner">Partner with us</a>
             </Button>
             
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" title="Favorites">
               <Heart className="h-5 w-5" />
             </Button>
 
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" title="Profile">
               <User className="h-5 w-5" />
             </Button>
 
-            <Button>Login</Button>
+            <Button asChild>
+              <a href="/login">Login</a>
+            </Button>
           </div>
         </div>
       </div>

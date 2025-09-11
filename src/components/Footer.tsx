@@ -20,8 +20,7 @@ const Footer = () => {
     'Buy Properties', 'Home Loans']; // 'Rent Properties', 'Property Management', 'Property Valuation', 'Legal Services', 'Interior Design', 'Sell Properties'
 
   const propertyTypes = [
-    'Apartments', 'Villas', 'Plots & Land']; // 'Commercial Properties',
-    'PG & Hostels', 'Office Spaces', 'Retail Shops', 'Warehouses'
+    'Apartments', 'Villas', 'Plots & Land']; // 'Commercial Properties', 'PG & Hostels', 'Office Spaces', 'Retail Shops', 'Warehouses'
 
   return (
     <footer className="bg-card border-t">

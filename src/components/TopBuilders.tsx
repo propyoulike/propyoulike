@@ -143,8 +143,8 @@ const TopBuilders = () => {
                 </div>
 
                 <div className="flex space-x-2">
-                  <Button variant="outline" className="flex-1" size="sm">
-                    View Projects
+                  <Button variant="outline" className="flex-1" size="sm" asChild>
+                    <a href="/builders">View Builders</a>
                   </Button>
                   <Button className="flex-1" size="sm">
                     Contact
