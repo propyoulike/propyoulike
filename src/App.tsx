@@ -7,6 +7,8 @@ import Index from "./pages/Index";
 import Properties from "./pages/Properties";
 import About from "./pages/About";
 import Builders from "./pages/Builders";
+import BuilderDetail from "./pages/BuilderDetail";
+import PropertyDetail from "./pages/PropertyDetail";
 import ProjectsByStageDetail from "./pages/ProjectsByStageDetail";
 import Solutions from "./pages/Solutions";
 import Partner from "./pages/Partner";
@@ -23,11 +25,14 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/properties" element={<Properties />} />
+          <Route path="/property/:propertyId" element={<PropertyDetail />} />
           <Route path="/builders" element={<Builders />} />
+          <Route path="/builder/:builderId" element={<BuilderDetail />} />
           <Route path="/projects/:stage" element={<ProjectsByStageDetail />} />
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/partner" element={<Partner />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/favorites" element={<Login />} />
           <Route path="/about" element={<About />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

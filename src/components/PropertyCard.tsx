@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { Heart, MapPin, Home, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
+import { Link } from 'react-router-dom';
 
 interface PropertyCardProps {
   id: number;
@@ -19,6 +21,7 @@ interface PropertyCardProps {
 }
 
 const PropertyCard = ({
+  id,
   title,
   location,
   price,
@@ -31,6 +34,7 @@ const PropertyCard = ({
   developer,
   isPromoted
 }: PropertyCardProps) => {
+  const [isFavorited, setIsFavorited] = useState(false);
   return (
     <Card className="group hover:shadow-lg transition-all duration-300 overflow-hidden">
       <div className="relative">
@@ -43,8 +47,9 @@ const PropertyCard = ({
           variant="ghost" 
           size="icon"
           className="absolute top-2 right-2 bg-white/80 hover:bg-white"
+          onClick={() => setIsFavorited(!isFavorited)}
         >
-          <Heart className="h-4 w-4" />
+          <Heart className={`h-4 w-4 ${isFavorited ? 'fill-red-500 text-red-500' : ''}`} />
         </Button>
         {isPromoted && (
           <Badge className="absolute top-2 left-2 bg-secondary text-secondary-foreground">
@@ -98,8 +103,8 @@ const PropertyCard = ({
           </div>
 
           <div className="flex space-x-2 pt-2">
-            <Button variant="outline" size="sm" className="flex-1">
-              View Details
+            <Button variant="outline" size="sm" className="flex-1" asChild>
+              <Link to={`/property/${id}`}>View Details</Link>
             </Button>
             <Button size="sm" className="flex-1">
               Contact

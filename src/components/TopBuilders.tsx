@@ -144,7 +144,7 @@ const TopBuilders = () => {
 
                 <div className="flex space-x-2">
                   <Button variant="outline" className="flex-1" size="sm" asChild>
-                    <a href="/builders">View Builders</a>
+                    <Link to={`/builder/${builder.id}`}>View Builder</Link>
                   </Button>
                   <Button className="flex-1" size="sm">
                     Contact

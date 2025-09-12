@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Heart, User, MapPin, ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -172,12 +173,16 @@ const Header = () => {
               <a href="/partner">Partner with us</a>
             </Button>
             
-            <Button variant="ghost" size="icon" title="Favorites">
-              <Heart className="h-5 w-5" />
+            <Button variant="ghost" size="icon" title="Favorites" asChild>
+              <Link to="/favorites">
+                <Heart className="h-5 w-5" />
+              </Link>
             </Button>
 
-            <Button variant="ghost" size="icon" title="Profile">
-              <User className="h-5 w-5" />
+            <Button variant="ghost" size="icon" title="Profile" asChild>
+              <Link to="/login">
+                <User className="h-5 w-5" />
+              </Link>
             </Button>
 
             <Button asChild>
