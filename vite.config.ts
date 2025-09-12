@@ -4,16 +4,15 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  // 👇 Deployment base path (Tomcat, GitHub Pages, etc.)
-  base: mode === "development" ? "/" : "/propyoulike/",
+  // 👇 Deployment base path
+  base: "/",
 
   // 👇 Dev server settings
   server: {
     host: "::",
-    port: 8081,
-    strictPort: true,            // ensures it won’t auto-shift to another port
-    open: "/", // ✅ open root in dev mode
-  //open: "/propyoulike/",       // auto-opens this path in browser on `npm run dev`
+    port: 8080,
+    strictPort: true,
+    open: "/",
   },
 
   // 👇 Plugins
