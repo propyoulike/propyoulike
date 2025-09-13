@@ -29,13 +29,13 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <img 
               src="/lovable-uploads/9d86baa8-1b29-4411-81b8-02d3e4527617.png" 
               alt="PropYoulike" 
               className="h-8 w-auto"
             />
-          </div>
+          </Link>
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
