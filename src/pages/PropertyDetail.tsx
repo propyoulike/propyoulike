@@ -10,6 +10,8 @@ import {
   Heart, MapPin, Home, Calendar, Bed, Bath, Square,
   Phone, Mail, Share2, Camera, Play, Star, CheckCircle
 } from 'lucide-react';
+import EnquiryModal from '@/components/EnquiryModal';
+import ShareModal from '@/components/ShareModal';
 
 const PropertyDetail = () => {
   const { propertyId } = useParams();
@@ -77,13 +79,18 @@ const PropertyDetail = () => {
                 >
                   <Heart className={`h-5 w-5 ${isFavorited ? 'fill-red-500 text-red-500' : ''}`} />
                 </Button>
-                <Button 
-                  variant="ghost" 
-                  size="icon"
-                  className="bg-white/80 hover:bg-white"
-                >
-                  <Share2 className="h-5 w-5" />
-                </Button>
+                <ShareModal
+                  trigger={
+                    <Button 
+                      variant="ghost" 
+                      size="icon"
+                      className="bg-white/80 hover:bg-white"
+                    >
+                      <Share2 className="h-5 w-5" />
+                    </Button>
+                  }
+                  title={property.title}
+                />
               </div>
               <div className="absolute bottom-4 left-4 flex space-x-2">
                 <Button variant="secondary" size="sm">
@@ -254,17 +261,30 @@ const PropertyDetail = () => {
                 <CardContent className="p-6">
                   <h3 className="font-semibold mb-4">Contact Builder</h3>
                   <div className="space-y-3">
-                    <Button className="w-full">
+                    <Button 
+                      className="w-full"
+                      onClick={() => window.open('https://wa.me/919379822010?text=Hi, I am interested in ' + encodeURIComponent(property.title), '_blank')}
+                    >
                       <Phone className="h-4 w-4 mr-2" />
                       Call Now
                     </Button>
-                    <Button variant="outline" className="w-full">
-                      <Mail className="h-4 w-4 mr-2" />
-                      Get Quote
-                    </Button>
-                    <Button variant="outline" className="w-full">
-                      Schedule Site Visit
-                    </Button>
+                    <EnquiryModal
+                      trigger={
+                        <Button variant="outline" className="w-full">
+                          <Mail className="h-4 w-4 mr-2" />
+                          Get Quote
+                        </Button>
+                      }
+                      propertyTitle={property.title}
+                    />
+                    <EnquiryModal
+                      trigger={
+                        <Button variant="outline" className="w-full">
+                          Schedule Site Visit
+                        </Button>
+                      }
+                      propertyTitle={property.title}
+                    />
                   </div>
                 </CardContent>
               </Card>

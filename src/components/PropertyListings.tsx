@@ -19,11 +19,12 @@ const PropertyListings = () => {
     'West Bangalore'
   ];
 
-  const properties = [
+  const allProperties = [
     {
       id: 1,
       title: "Shriram Songs Of The Earth",
       location: "Madiwala, Bangalore",
+      zone: "South Bangalore",
       price: "₹1.02 Cr to 1.50 Cr",
       image: property1,
       type: "Apartment",
@@ -37,6 +38,7 @@ const PropertyListings = () => {
       id: 2,
       title: "Provident Equinox 4",
       location: "Mysore Road, Bangalore",
+      zone: "West Bangalore",
       price: "₹62.99 Lac to 74.99 Lac",
       originalPrice: "₹75 Lac",
       image: property2,
@@ -50,6 +52,7 @@ const PropertyListings = () => {
       id: 3,
       title: "Godrej MSR City",
       location: "Shelbgore, Bangalore",
+      zone: "South Bangalore",
       price: "₹1.22 Cr to 1.80 Cr",
       image: property3,
       type: "Villa",
@@ -62,6 +65,7 @@ const PropertyListings = () => {
       id: 4,
       title: "Embassy Edge",
       location: "Devanahalli, Bangalore",
+      zone: "North Bangalore",
       price: "₹60.95 Lac to 87.17 Lac",
       image: property1,
       type: "Apartment",
@@ -70,8 +74,64 @@ const PropertyListings = () => {
       area: "800-1200 sq ft",
       developer: "Embassy Group",
       isPromoted: true
+    },
+    {
+      id: 5,
+      title: "Prestige Lakeside Habitat",
+      location: "Varthur, Bangalore",
+      zone: "East Bangalore",
+      price: "₹85 Lakh - 1.2 Cr",
+      image: property2,
+      type: "Apartment",
+      possession: "Dec 2024",
+      configuration: "2, 3 BHK",
+      area: "1200-1600 sq ft",
+      developer: "Prestige Group"
+    },
+    {
+      id: 6,
+      title: "Brigade Cornerstone Utopia",
+      location: "Whitefield, Bangalore",
+      zone: "East Bangalore",
+      price: "₹1.1 Cr to 1.8 Cr",
+      image: property3,
+      type: "Apartment",
+      possession: "Dec 2025",
+      configuration: "2, 3, 4 BHK",
+      area: "1400-2200 sq ft",
+      developer: "Brigade Group"
+    },
+    {
+      id: 7,
+      title: "Sobha Neopolis",
+      location: "Panathur, Bangalore",
+      zone: "East Bangalore",
+      price: "₹72 Lakh - 1.05 Cr",
+      image: property1,
+      type: "Apartment",
+      possession: "Mar 2025",
+      configuration: "2, 3 BHK",
+      area: "1180-1650 sq ft",
+      developer: "Sobha Limited"
+    },
+    {
+      id: 8,
+      title: "Purva Atmosphere",
+      location: "Thanisandra, Bangalore",
+      zone: "North Bangalore",
+      price: "₹95 Lakh - 1.45 Cr",
+      image: property2,
+      type: "Apartment",
+      possession: "Jun 2026",
+      configuration: "2, 3 BHK",
+      area: "1250-1850 sq ft",
+      developer: "Puravankara"
     }
   ];
+
+  const properties = activeTab === 'All' 
+    ? allProperties 
+    : allProperties.filter(property => property.zone === activeTab);
 
   return (
     <section className="py-12 bg-muted/30">

@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { Heart, MapPin, Home, Calendar } from 'lucide-react';
+import { Heart, MapPin, Home, Calendar, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
+import EnquiryModal from './EnquiryModal';
+import ShareModal from './ShareModal';
 
 interface PropertyCardProps {
   id: number;
@@ -43,14 +45,28 @@ const PropertyCard = ({
           alt={title}
           className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
         />
-        <Button 
-          variant="ghost" 
-          size="icon"
-          className="absolute top-2 right-2 bg-white/80 hover:bg-white"
-          onClick={() => setIsFavorited(!isFavorited)}
-        >
-          <Heart className={`h-4 w-4 ${isFavorited ? 'fill-red-500 text-red-500' : ''}`} />
-        </Button>
+        <div className="absolute top-2 right-2 flex space-x-1">
+          <ShareModal
+            trigger={
+              <Button 
+                variant="ghost" 
+                size="icon"
+                className="bg-white/80 hover:bg-white"
+              >
+                <Share2 className="h-4 w-4" />
+              </Button>
+            }
+            title={title}
+          />
+          <Button 
+            variant="ghost" 
+            size="icon"
+            className="bg-white/80 hover:bg-white"
+            onClick={() => setIsFavorited(!isFavorited)}
+          >
+            <Heart className={`h-4 w-4 ${isFavorited ? 'fill-red-500 text-red-500' : ''}`} />
+          </Button>
+        </div>
         {isPromoted && (
           <Badge className="absolute top-2 left-2 bg-secondary text-secondary-foreground">
             Promoted
@@ -106,9 +122,24 @@ const PropertyCard = ({
             <Button variant="outline" size="sm" className="flex-1" asChild>
               <Link to={`/property/${id}`}>View Details</Link>
             </Button>
-            <Button size="sm" className="flex-1">
+            <Button 
+              size="sm" 
+              className="flex-1"
+              onClick={() => window.open('https://wa.me/919379822010?text=Hi, I am interested in ' + encodeURIComponent(title), '_blank')}
+            >
               Contact
             </Button>
+          </div>
+          
+          <div className="pt-2">
+            <EnquiryModal 
+              trigger={
+                <Button variant="ghost" size="sm" className="w-full text-primary">
+                  Quick Enquiry
+                </Button>
+              }
+              propertyTitle={title}
+            />
           </div>
         </div>
       </CardContent>
