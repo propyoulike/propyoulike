@@ -1,7 +1,6 @@
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Star, MapPin, Building } from 'lucide-react';
+import { Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const TopBuilders = () => {
@@ -88,72 +87,36 @@ const TopBuilders = () => {
           </p>
         </div>
 
-        {/* Featured Builders */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        {/* Builder Logos Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12">
           {builders.map((builder) => (
-            <Card 
-              key={builder.id} 
-              className={`relative overflow-hidden transition-all hover:shadow-lg ${
-                builder.featured ? 'ring-2 ring-primary/20' : ''
-              }`}
+            <Link 
+              key={builder.id}
+              to={`/builder/${builder.id}`}
+              className="group flex flex-col items-center space-y-3 p-4 rounded-xl transition-all hover:shadow-lg hover:bg-muted/50"
             >
-              {builder.featured && (
-                <Badge className="absolute top-4 right-4 z-10">Featured</Badge>
-              )}
-              
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4 mb-4">
-                  <Link to={`/builder/${builder.id}`} className="block">
-                    <img
-                      src={builder.logo}
-                      alt={builder.name}
-                      className="w-16 h-16 rounded-lg object-cover border-2 border-border hover:border-primary transition-colors cursor-pointer"
-                    />
-                  </Link>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-lg mb-1">{builder.name}</h3>
-                    <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-2">
-                      <span>Est. {builder.yearEstablished}</span>
-                      <div className="flex items-center space-x-1">
-                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                        <span>{builder.rating}</span>
-                      </div>
-                    </div>
-                  </div>
+              <div className="relative">
+                {builder.featured && (
+                  <Badge className="absolute -top-2 -right-2 z-10 text-xs">Featured</Badge>
+                )}
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden border-2 border-border group-hover:border-primary transition-colors shadow-sm">
+                  <img
+                    src={builder.logo}
+                    alt={builder.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                  />
                 </div>
-
-                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                  {builder.description}
-                </p>
-
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div className="text-center p-3 bg-muted/50 rounded-lg">
-                    <div className="flex items-center justify-center space-x-1 mb-1">
-                      <Building className="h-4 w-4 text-primary" />
-                      <span className="font-semibold">{builder.projects}</span>
-                    </div>
-                    <p className="text-xs text-muted-foreground">Projects</p>
-                  </div>
-                  
-                  <div className="text-center p-3 bg-muted/50 rounded-lg">
-                    <div className="flex items-center justify-center space-x-1 mb-1">
-                      <MapPin className="h-4 w-4 text-primary" />
-                      <span className="font-semibold">{builder.locations}</span>
-                    </div>
-                    <p className="text-xs text-muted-foreground">Locations</p>
-                  </div>
+              </div>
+              <div className="text-center">
+                <h3 className="font-semibold text-sm md:text-base group-hover:text-primary transition-colors">
+                  {builder.name}
+                </h3>
+                <div className="flex items-center justify-center space-x-1 mt-1">
+                  <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                  <span className="text-xs text-muted-foreground">{builder.rating}</span>
                 </div>
-
-                <div className="flex space-x-2">
-                  <Button variant="outline" className="flex-1" size="sm" asChild>
-                    <Link to={`/builder/${builder.id}`}>View Builder</Link>
-                  </Button>
-                  <Button className="flex-1" size="sm">
-                    Contact
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+            </Link>
           ))}
         </div>
 
