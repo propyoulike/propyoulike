@@ -103,11 +103,13 @@ const TopBuilders = () => {
               
               <CardContent className="p-6">
                 <div className="flex items-start space-x-4 mb-4">
-                  <img
-                    src={builder.logo}
-                    alt={builder.name}
-                    className="w-16 h-16 rounded-lg object-cover border-2 border-border"
-                  />
+                  <Link to={`/builder/${builder.id}`} className="block">
+                    <img
+                      src={builder.logo}
+                      alt={builder.name}
+                      className="w-16 h-16 rounded-lg object-cover border-2 border-border hover:border-primary transition-colors cursor-pointer"
+                    />
+                  </Link>
                   <div className="flex-1">
                     <h3 className="font-bold text-lg mb-1">{builder.name}</h3>
                     <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-2">
