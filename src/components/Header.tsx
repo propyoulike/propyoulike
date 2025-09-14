@@ -1,13 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Heart, User, MapPin, ChevronDown } from 'lucide-react';
+import { Heart, User, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
 
 const Header = () => {
   const [activeTab, setActiveTab] = useState('Bangalore');
@@ -39,103 +33,25 @@ const Header = () => {
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="flex items-center space-x-1">
-                  <span>Projects</span>
-                  <ChevronDown className="h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>
-                  <a href="/projects/luxury">Luxury Projects</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <a href="/projects/affordable">Affordable Projects</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <a href="/projects/eoi">EOI Projects</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <a href="/projects/ready-to-move">Ready to Move</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <a href="/projects/under-construction">Under Construction</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <a href="/projects/resale">Resale Properties</a>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <Button variant="ghost" asChild>
+              <Link to="/properties">Projects</Link>
+            </Button>
 
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="flex items-center space-x-1">
-                  <span>Apartments</span>
-                  <ChevronDown className="h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>
-                  <a href="/properties?type=apartment">View All Apartments</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>1 BHK Apartments</DropdownMenuItem>
-                <DropdownMenuItem>2 BHK Apartments</DropdownMenuItem>
-                <DropdownMenuItem>3 BHK Apartments</DropdownMenuItem>
-                <DropdownMenuItem>4+ BHK Apartments</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <Button variant="ghost" asChild>
+              <Link to="/properties?type=apartment">Apartments</Link>
+            </Button>
 
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="flex items-center space-x-1">
-                  <span>Villas</span>
-                  <ChevronDown className="h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>
-                  <a href="/properties?type=villa">View All Villas</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>Independent Villas</DropdownMenuItem>
-                <DropdownMenuItem>Villa Communities</DropdownMenuItem>
-                <DropdownMenuItem>Luxury Villas</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <Button variant="ghost" asChild>
+              <Link to="/properties?type=villa">Villas</Link>
+            </Button>
 
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="flex items-center space-x-1">
-                  <span>Plots</span>
-                  <ChevronDown className="h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>
-                  <a href="/properties?type=plot">View All Plots</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>Residential Plots</DropdownMenuItem>
-                <DropdownMenuItem>Commercial Plots</DropdownMenuItem>
-                <DropdownMenuItem>BMRDA Approved</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <Button variant="ghost" asChild>
+              <Link to="/properties?type=plot">Plots</Link>
+            </Button>
 
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="flex items-center space-x-1">
-                  <span>Builders</span>
-                  <ChevronDown className="h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>
-                  <a href="/builders">Top Builders</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>Featured Developers</DropdownMenuItem>
-                <DropdownMenuItem>New Builders</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
+            <Button variant="ghost" asChild>
+              <Link to="/builders">Builders</Link>
+            </Button>
           </nav>
 
           {/* Right Side Actions */}
