@@ -44,23 +44,23 @@ const Header = () => {
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Button variant="ghost" asChild>
+            <Button variant="ghost" className="hover:bg-accent hover:text-accent-foreground" asChild>
               <Link to="/properties">Projects</Link>
             </Button>
 
-            <Button variant="ghost" asChild>
+            <Button variant="ghost" className="hover:bg-accent hover:text-accent-foreground" asChild>
               <Link to="/properties?type=apartment">Apartments</Link>
             </Button>
 
-            <Button variant="ghost" asChild>
+            <Button variant="ghost" className="hover:bg-accent hover:text-accent-foreground" asChild>
               <Link to="/properties?type=villa">Villas</Link>
             </Button>
 
-            <Button variant="ghost" asChild>
+            <Button variant="ghost" className="hover:bg-accent hover:text-accent-foreground" asChild>
               <Link to="/properties?type=plot">Plots</Link>
             </Button>
 
-            <Button variant="ghost" asChild>
+            <Button variant="ghost" className="hover:bg-accent hover:text-accent-foreground" asChild>
               <Link to="/builders">Builders</Link>
             </Button>
           </nav>
