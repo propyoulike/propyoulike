@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Heart, User, MapPin } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Badge } from '@/components/ui/badge';
+import { Heart, User, MapPin, Shield } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [activeTab, setActiveTab] = useState('Bangalore');
+  const location = useLocation();
+  const isPropertyPage = location.pathname.startsWith('/property/');
 
   const cities = [
     'Bangalore'
@@ -23,12 +26,20 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-3">
             <img 
               src="/lovable-uploads/9d86baa8-1b29-4411-81b8-02d3e4527617.png" 
               alt="PropYoulike" 
               className="h-8 w-auto"
             />
+            {isPropertyPage && (
+              <div className="flex items-center space-x-2">
+                <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200">
+                  <Shield className="h-3 w-3 mr-1" />
+                  Builder Authorized Partner
+                </Badge>
+              </div>
+            )}
           </Link>
 
           {/* Navigation */}
