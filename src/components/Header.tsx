@@ -1,13 +1,21 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Heart, User, MapPin, Shield } from 'lucide-react';
+import { Heart, User, MapPin, Shield, LogOut } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { useAuth } from '@/contexts/AuthContext';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const [activeTab, setActiveTab] = useState('Bangalore');
   const location = useLocation();
   const isPropertyPage = location.pathname.startsWith('/property/');
+  const { user, signOut } = useAuth();
 
   const cities = [
     'Bangalore'
@@ -77,15 +85,31 @@ const Header = () => {
               </Link>
             </Button>
 
-            <Button variant="ghost" size="icon" title="Profile" asChild>
-              <Link to="/login">
-                <User className="h-5 w-5" />
-              </Link>
-            </Button>
-
-            <Button asChild>
-              <a href="/login">Login</a>
-            </Button>
+            {user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon" title="Profile">
+                    <User className="h-5 w-5" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem asChild>
+                    <Link to="/favorites" className="flex items-center">
+                      <Heart className="mr-2 h-4 w-4" />
+                      My Favorites
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={signOut} className="flex items-center">
+                    <LogOut className="mr-2 h-4 w-4" />
+                    Sign Out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <Button asChild>
+                <Link to="/auth">Login</Link>
+              </Button>
+            )}
           </div>
         </div>
       </div>

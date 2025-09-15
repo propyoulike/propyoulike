@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
+import { useFavorites } from '@/hooks/useFavorites';
 import EnquiryModal from './EnquiryModal';
 import ShareModal from './ShareModal';
 
@@ -36,7 +37,22 @@ const PropertyCard = ({
   developer,
   isPromoted
 }: PropertyCardProps) => {
-  const [isFavorited, setIsFavorited] = useState(false);
+  const { addToFavorites, removeFromFavorites, isFavorite } = useFavorites();
+  const isFavorited = isFavorite(id.toString());
+
+  const handleFavoriteClick = async () => {
+    if (isFavorited) {
+      await removeFromFavorites(id.toString());
+    } else {
+      await addToFavorites({
+        id: id.toString(),
+        title,
+        image,
+        price,
+        location,
+      });
+    }
+  };
   return (
     <Card className="group hover:shadow-lg transition-all duration-300 overflow-hidden">
       <div className="relative">
@@ -62,7 +78,7 @@ const PropertyCard = ({
             variant="ghost" 
             size="icon"
             className="bg-white/80 hover:bg-white"
-            onClick={() => setIsFavorited(!isFavorited)}
+            onClick={handleFavoriteClick}
           >
             <Heart className={`h-4 w-4 ${isFavorited ? 'fill-red-500 text-red-500' : ''}`} />
           </Button>
