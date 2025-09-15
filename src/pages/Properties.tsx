@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PropertyCard from '@/components/PropertyCard';
@@ -13,8 +14,10 @@ import property3 from '@/assets/property-3.jpg';
 
 const Properties = () => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [searchParams] = useSearchParams();
+  const typeFilter = searchParams.get('type');
   
-  const properties = Array.from({ length: 12 }, (_, index) => ({
+  const allProperties = Array.from({ length: 12 }, (_, index) => ({
     id: index + 1,
     title: `Premium Property ${index + 1}`,
     location: "Bangalore, Karnataka",
@@ -28,6 +31,28 @@ const Properties = () => {
     isPromoted: index % 4 === 0
   }));
 
+  // Filter properties based on URL parameter
+  const properties = typeFilter 
+    ? allProperties.filter(property => property.type.toLowerCase() === typeFilter.toLowerCase())
+    : allProperties;
+
+  // Get page title based on filter
+  const getPageTitle = () => {
+    if (typeFilter) {
+      const capitalizedType = typeFilter.charAt(0).toUpperCase() + typeFilter.slice(1) + 's';
+      return `${capitalizedType} in Bangalore`;
+    }
+    return 'Properties in Bangalore';
+  };
+
+  const getPageDescription = () => {
+    if (typeFilter) {
+      const capitalizedType = typeFilter.charAt(0).toUpperCase() + typeFilter.slice(1).toLowerCase() + 's';
+      return `Discover ${properties.length} premium ${capitalizedType.toLowerCase()} available for purchase`;
+    }
+    return `Discover ${properties.length} premium properties available for purchase`;
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -36,9 +61,9 @@ const Properties = () => {
         <div className="container mx-auto px-4">
           {/* Page Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold mb-2">Properties in Bangalore</h1>
+            <h1 className="text-3xl font-bold mb-2">{getPageTitle()}</h1>
             <p className="text-muted-foreground">
-              Discover {properties.length} premium properties available for purchase
+              {getPageDescription()}
             </p>
           </div>
 
