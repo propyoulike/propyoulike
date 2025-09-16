@@ -15,6 +15,8 @@ import Partner from "./pages/Partner";
 import Auth from "./pages/Auth";
 import ResetPassword from "./pages/ResetPassword";
 import Favorites from "./pages/Favorites";
+import Admin from "./pages/Admin";
+import BuilderLanding from "./pages/BuilderLanding";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,6 +38,8 @@ const App = () => (
           <Route path="/auth" element={<Auth />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/favorites" element={<Favorites />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/builder-landing/:pageSlug" element={<BuilderLanding />} />
           <Route path="/about" element={<About />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

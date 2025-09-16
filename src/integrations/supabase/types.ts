@@ -14,6 +14,217 @@ export type Database = {
   }
   public: {
     Tables: {
+      builder_landing_pages: {
+        Row: {
+          about_section: Json | null
+          builder_id: string
+          contact_section: Json | null
+          created_at: string | null
+          custom_css: string | null
+          hero_section: Json | null
+          id: string
+          is_active: boolean | null
+          page_slug: string
+          page_title: string
+          projects_section: Json | null
+          seo_meta: Json | null
+          testimonials_section: Json | null
+          updated_at: string | null
+        }
+        Insert: {
+          about_section?: Json | null
+          builder_id: string
+          contact_section?: Json | null
+          created_at?: string | null
+          custom_css?: string | null
+          hero_section?: Json | null
+          id?: string
+          is_active?: boolean | null
+          page_slug: string
+          page_title: string
+          projects_section?: Json | null
+          seo_meta?: Json | null
+          testimonials_section?: Json | null
+          updated_at?: string | null
+        }
+        Update: {
+          about_section?: Json | null
+          builder_id?: string
+          contact_section?: Json | null
+          created_at?: string | null
+          custom_css?: string | null
+          hero_section?: Json | null
+          id?: string
+          is_active?: boolean | null
+          page_slug?: string
+          page_title?: string
+          projects_section?: Json | null
+          seo_meta?: Json | null
+          testimonials_section?: Json | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "builder_landing_pages_builder_id_fkey"
+            columns: ["builder_id"]
+            isOneToOne: false
+            referencedRelation: "builders"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      builder_projects: {
+        Row: {
+          amenities: string[] | null
+          area_range: string | null
+          builder_id: string
+          configuration: string | null
+          created_at: string | null
+          floor_plans: Json | null
+          gallery_images: string[] | null
+          id: string
+          image_url: string | null
+          is_promoted: boolean | null
+          location: string | null
+          possession_date: string | null
+          price_range: string | null
+          project_type: string | null
+          slug: string
+          status: string | null
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          amenities?: string[] | null
+          area_range?: string | null
+          builder_id: string
+          configuration?: string | null
+          created_at?: string | null
+          floor_plans?: Json | null
+          gallery_images?: string[] | null
+          id?: string
+          image_url?: string | null
+          is_promoted?: boolean | null
+          location?: string | null
+          possession_date?: string | null
+          price_range?: string | null
+          project_type?: string | null
+          slug: string
+          status?: string | null
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          amenities?: string[] | null
+          area_range?: string | null
+          builder_id?: string
+          configuration?: string | null
+          created_at?: string | null
+          floor_plans?: Json | null
+          gallery_images?: string[] | null
+          id?: string
+          image_url?: string | null
+          is_promoted?: boolean | null
+          location?: string | null
+          possession_date?: string | null
+          price_range?: string | null
+          project_type?: string | null
+          slug?: string
+          status?: string | null
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "builder_projects_builder_id_fkey"
+            columns: ["builder_id"]
+            isOneToOne: false
+            referencedRelation: "builders"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      builders: {
+        Row: {
+          awards: string[] | null
+          certifications: string[] | null
+          contact_address: string | null
+          contact_email: string | null
+          contact_phone: string | null
+          contact_website: string | null
+          created_at: string | null
+          description: string | null
+          employee_count: string | null
+          hero_image_url: string | null
+          id: string
+          is_active: boolean | null
+          is_featured: boolean | null
+          logo_url: string | null
+          mission: string | null
+          name: string
+          rating: number | null
+          slug: string
+          specialties: string[] | null
+          total_area_delivered: string | null
+          total_locations: number | null
+          total_projects: number | null
+          updated_at: string | null
+          year_established: number | null
+        }
+        Insert: {
+          awards?: string[] | null
+          certifications?: string[] | null
+          contact_address?: string | null
+          contact_email?: string | null
+          contact_phone?: string | null
+          contact_website?: string | null
+          created_at?: string | null
+          description?: string | null
+          employee_count?: string | null
+          hero_image_url?: string | null
+          id?: string
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          logo_url?: string | null
+          mission?: string | null
+          name: string
+          rating?: number | null
+          slug: string
+          specialties?: string[] | null
+          total_area_delivered?: string | null
+          total_locations?: number | null
+          total_projects?: number | null
+          updated_at?: string | null
+          year_established?: number | null
+        }
+        Update: {
+          awards?: string[] | null
+          certifications?: string[] | null
+          contact_address?: string | null
+          contact_email?: string | null
+          contact_phone?: string | null
+          contact_website?: string | null
+          created_at?: string | null
+          description?: string | null
+          employee_count?: string | null
+          hero_image_url?: string | null
+          id?: string
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          logo_url?: string | null
+          mission?: string | null
+          name?: string
+          rating?: number | null
+          slug?: string
+          specialties?: string[] | null
+          total_area_delivered?: string | null
+          total_locations?: number | null
+          total_projects?: number | null
+          updated_at?: string | null
+          year_established?: number | null
+        }
+        Relationships: []
+      }
       favorites: {
         Row: {
           created_at: string

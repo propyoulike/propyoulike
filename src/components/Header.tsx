@@ -71,6 +71,22 @@ const Header = () => {
             <Button variant="ghost" className="hover:bg-accent hover:text-accent-foreground" asChild>
               <Link to="/builders">Builders</Link>
             </Button>
+
+            <Link
+              to="/about"
+              className="text-foreground hover:text-primary transition-colors"
+            >
+              About
+            </Link>
+            
+            {user && (
+              <Link
+                to="/admin"
+                className="text-foreground hover:text-primary transition-colors"
+              >
+                Admin
+              </Link>
+            )}
           </nav>
 
           {/* Right Side Actions */}
